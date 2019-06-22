@@ -1,47 +1,61 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MyMinibolg</title>
+    <title>MilkyWay!</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   </head>
 
   <body>
     <header>
       <div class="header-logo">
         <% if @current_user %>
-          <%= link_to("MyMiniぶろぐ", "/posts/index") %>
+          <%= link_to("MilkyWay!", "/posts/index") %>
         <% else %>
-          <%= link_to("MyMiniぶろぐ", "/") %>
+          <%= link_to("MilkyWay!", "/") %>
         <% end %>
       </div>
       <ul class="header-menus">
         <% if @current_user %>
+        <p>
+          <input type="text" name="" value="" placeholder="検索">
+          <button type="submit">
+             <i class="fas fa-search"></i> 検索
+           </button>
+        </p>
         <li>
-          <%= link_to(@current_user.name,"/users/#{@current_user.id}") %>
+          <img src="<%= "/user_images/#{@current_user.image_name}" %>">
+          <%= link_to("#{@current_user.name}さん","/users/#{@current_user.id}") %>
         </li>
         <li>
-          <%= link_to("投稿一覧", "/posts/index") %>
+          <%= link_to("作品投稿", "/posts/new") %>
         </li>
         <li>
-          <%= link_to("新規投稿", "/posts/new") %>
+          <%= link_to("作品管理", "/users/#{@current_user.id}") %>
         </li>
         <li>
-          <%= link_to("ユーザー一覧", "/users/index") %>
+          <%= link_to("お気に入り", "/users/#{@current_user.id}/likes") %>
         </li>
         <li>
-          <%= link_to("ログアウト","/logout",{method: :post})%>
+          <%= link_to("新着投稿一覧", "/posts/index") %>
         </li>
       <% else %>
+        <p>
+          <input type="text" name="" value="" placeholder="検索">
+          <button type="submit">
+  	         <i class="fas fa-search"></i> 検索
+           </button>
+        </p>
         <li>
-          <%= link_to("MyMiniぶろぐとは", "/about") %>
+          <%= link_to("MilkyWay!使い方", "/about") %>
         </li>
         <li>
-          <%= link_to("新規登録", "/signup") %>
+          <%= link_to("アカウント新規作成", "/signup") %>
         </li>
         <li>
           <%= link_to("ログイン", "/login") %>

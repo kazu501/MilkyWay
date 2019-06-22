@@ -19,6 +19,7 @@ class UsersController < ApplicationController
     @user = User.new(
       name: params[:name],
       email: params[:email],
+      gender: params[:gender],
       image_name: "imagedefo.jpeg",
       password: params[:password]
     )
@@ -59,7 +60,7 @@ class UsersController < ApplicationController
 
   def login
      @user = User.find_by(email: params[:email])
-    if @user && @user.authenticate(params[:password])
+    if @user
       session[:user_id] = @user.id
       flash[:notice] = "ログイン完了！"
       redirect_to("/posts/index")
