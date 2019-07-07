@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+<<<<<<< HEAD
     <title>MilkyWay!</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -9,11 +10,19 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+=======
+    <title>TweetApp</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+>>>>>>> エラーメッセージの日本語設定など
   </head>
 
   <body>
     <header>
       <div class="header-logo">
+<<<<<<< HEAD
         <% if @current_user %>
           <%= link_to("MilkyWay!", "/posts/index") %>
         <% else %>
@@ -73,6 +82,29 @@
       <%= flash[:notice]%>
     </div>
     <% end %>
+=======
+        <%= link_to("TweetApp", "/") %>
+      </div>
+      <ul class="header-menus">
+        <li>
+          <%= link_to("TweetAppとは", "/about") %>
+        </li>
+        <li>
+          <%= link_to("投稿一覧", "/posts/index") %>
+        </li>
+        <li>
+          <%= link_to("新規投稿", "/posts/new") %>
+        </li>
+      </ul>
+    </header>
+
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+>>>>>>> エラーメッセージの日本語設定など
     <%= yield %>
   </body>
 </html>

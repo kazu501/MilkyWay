@@ -22,4 +22,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+<<<<<<< HEAD
 #myminiblog
+=======
+>>>>>>> エラーメッセージの日本語設定など

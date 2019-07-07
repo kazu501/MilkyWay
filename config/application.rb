@@ -6,19 +6,28 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+<<<<<<< HEAD
 module MyMinibolg
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
      config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]
+=======
+module RailsTest
+  class Application < Rails::Application
+    # Initialize configuration defaults for originally generated Rails version.
+>>>>>>> エラーメッセージの日本語設定など
     config.load_defaults 5.2
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+<<<<<<< HEAD
     config.time_zone = "Tokyo"
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :ja
     config.i18n.available_locales = [:ja, :en]
+=======
+>>>>>>> エラーメッセージの日本語設定など
   end
 end

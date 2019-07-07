@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   post "likes/:post_id/create" => "likes#create"
   post "likes/:post_id/destroy" => "likes#destroy"
 
@@ -14,6 +15,9 @@ Rails.application.routes.draw do
   get "users/:id/likes" => "users#likes"
 
   get  "posts/index" => "posts#index"
+=======
+  get "posts/index" => "posts#index"
+>>>>>>> エラーメッセージの日本語設定など
   get "posts/new" => "posts#new"
   get "posts/:id" => "posts#show"
   post "posts/create" => "posts#create"
@@ -23,5 +27,8 @@ Rails.application.routes.draw do
 
   get "/" => "home#top"
   get "about" => "home#about"
+<<<<<<< HEAD
 
+=======
+>>>>>>> エラーメッセージの日本語設定など
 end

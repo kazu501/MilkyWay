@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+<<<<<<< HEAD
 before_action :set_current_user
 
   def set_current_user
@@ -19,4 +20,6 @@ before_action :set_current_user
     end
   end
 
+=======
+>>>>>>> エラーメッセージの日本語設定など
 end

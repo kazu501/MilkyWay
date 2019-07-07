@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "My_Minibolg",
+=======
+  "name": "rails_test",
+>>>>>>> エラーメッセージの日本語設定など
   "private": true,
   "dependencies": {}
 }
