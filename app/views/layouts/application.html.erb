@@ -23,11 +23,13 @@
       <ul class="header-menus">
         <% if @current_user %>
         <p>
-          <input type="text" name="" value="" placeholder="検索">
+        <label>
+          <input type="search" name="" value="" placeholder="検索">
           <button type="submit">
              <i class="fas fa-search"></i> 検索
            </button>
         </p>
+        </label>
         <li>
           <img src="<%= "/user_images/#{@current_user.image_name}" %>">
           <%= link_to("#{@current_user.name}さん","/users/#{@current_user.id}") %>
@@ -46,10 +48,13 @@
         </li>
       <% else %>
         <p>
-          <input type="text" name="" value="" placeholder="検索">
-          <button type="submit">
-  	         <i class="fas fa-search"></i> 検索
-           </button>
+          <!-- <input type="text" name="" value="" placeholder="検索">
+          <button type="submit"> -->
+
+  	         <!-- <i class="fas fa-search"></i> 検索 -->
+           <!-- </button> -->
+
+           
         </p>
         <li>
           <%= link_to("MilkyWay!使い方", "/about") %>

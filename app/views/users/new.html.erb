@@ -11,21 +11,17 @@
 
         <%= form_tag("/users/create") do %>
             <p>ペンネーム</p>
+            <label>
             <input name="name" value="<%= @user.name %>">
             <p>メールアドレス</p>
             <input name="email" value="<%= @user.email %>">
             <p>パスワード</p>
           <input name="password" type="password" value="<%= @user.password %>">
           <p>性別</p>
-          <%= form_for(@user, url:{controller:'users',action:'new'}) do |f| %>
-            <label><%= f.radio_button :gender, "男"%>男</label>
-
-          <!-- input name="gender" type="radio" value="">男性
-          <input name="gender" type="radio" value="">女性
-          <input name="gender" type="radio" value="">その他 -->
+          <input name="gender" type="radio" value="man">男性
+          <input name="gender" type="radio" value="woman">女性
+          <input name="gender" type="radio" value="other" checked>その他
           <input type="submit" value="アカウント作成">
-
-          <% end %>
         <% end %>
       </div>
     </div>

@@ -3,15 +3,14 @@
     <div class="user">
       <img src="<%= "/user_images/#{@user.image_name}" %>">
       <h2><%= @user.name %></h2>
-      <p><%= @user.email %></p>
+      <h3>ユーザーのプロフィール</h3>
+      <p><%= simple_format @user.profile %></p>
       <% if @user.id == @current_user.id %>
-        <%= link_to("編集", "/users/#{@user.id}/edit") %>
+        <%= link_to("ユーザー情報変更", "/users/#{@user.id}/edit") %>
       <% end %>
     </div>
-
     <ul class="user-tabs">
-      <li><%= link_to("投稿", "/users/#{@user.id}") %></li>
-      <li class="active"><%= link_to("お気に入りした作品", "/users/#{@user.id}/likes") %></li>
+      <li class="active"><%= link_to("#{@current_user.name}の投稿", "/users/#{@user.id}") %></li>
     </ul>
 
     <% @likes.each do |like|%>

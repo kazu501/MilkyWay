@@ -1,7 +1,10 @@
 class UsersController < ApplicationController
+  protect_from_forgery
+
   before_action :authenticate_user, {only: [:index, :show, :edit, :update]}
   before_action :forbid_login_user, {only: [:new, :create, :login_form, :login]}
   before_action :ensure_correct_user, {only: [:edit, :update]}
+
 
   def index
     @users = User.all.order(created_at: :desc)
@@ -25,7 +28,7 @@ class UsersController < ApplicationController
     )
     if @user.save
       session[:user_id] = @user.id
-      flash[:notice] = "ユーザー登録完了！"
+      flash[:notice] = "ユーザー登録完了!"
       redirect_to("/users/#{@user.id}")
     else
       render("users/new")
@@ -40,7 +43,7 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
     @user.name = params[:name]
     @user.email = params[:email]
-
+    @user.profile = params[:profile]
     if params[:image]
       @user.image_name = "#{@user.id}.jpg"
       image = params[:image]
@@ -48,7 +51,7 @@ class UsersController < ApplicationController
     end
 
     if @user.save
-      flash[:notice] = "ユーザー情報編集完了！"
+      flash[:notice] = "ユーザー情報を編集変更しました"
       redirect_to("/users/#{@user.id}")
     else
       render("users/edit")
@@ -62,7 +65,7 @@ class UsersController < ApplicationController
      @user = User.find_by(email: params[:email])
     if @user
       session[:user_id] = @user.id
-      flash[:notice] = "ログイン完了！"
+      flash[:notice] = "ログインしました"
       redirect_to("/posts/index")
     else
       @error_message = "メールアドレスまたはパスワードが間違っています"
