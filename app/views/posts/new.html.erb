@@ -1,7 +1,7 @@
 <div class="main posts-new">
   <div class="container">
     <h1 class="form-heading">作品投稿</h1>
-    <%= form_tag("/posts/create") do %>
+    <%= form_tag("/posts/create",{multipart:true}) do %>
     <div class="form">
       <div class="form-body">
         <% @post.errors.full_messages.each do |message| %>
@@ -9,12 +9,12 @@
               <%= message %>
             </div>
           <% end %>
-           <%# <%= form_tag("/posts/#{@post.id}/create",{multipart: true} do )%>  
+           <%# <%= form_tag("/posts/#{@post.id}/create",{multipart: true} do )%>
           <p>画像ファイル埋め込み</p>
-          <input name="image" type="file">
-        <textarea name="title" value="" placeholder="タイトル"></textarea>
-        <textarea name="content" placeholder="キャプション"></textarea>
-        <input type="submit" value="投稿する">
+         <input name="picture" type="file">
+         <textarea name="title" placeholder="タイトル"></textarea>
+         <textarea name="content" placeholder="キャプション"></textarea>
+         <input type="submit" value="投稿する">
       </div>
     </div>
     <% end %>

@@ -20,10 +20,13 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(
       content: params[:content],
+      title: params[:title],
+      picture: params[:picture],
       user_id: @current_user.id
     )
     if @post.save
-      flash[:notice] = "投稿が完了しました"
+      File.binwrite("app/assets/images/#{params[:picture]}",params[:picture].read)
+      flash[:notice] = "投稿が完了しました#{params[:picture]}"
       redirect_to("/posts/index")
     else
       render("posts/new")
@@ -62,7 +65,7 @@ class PostsController < ApplicationController
 
   private
   def permit_params
-    params.require(:post).permit(:name, :image)
+    params.require(:post).permit(:title, :content, :picture)
   end
 
 

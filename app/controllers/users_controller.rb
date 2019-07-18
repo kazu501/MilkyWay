@@ -4,14 +4,14 @@ class UsersController < ApplicationController
   before_action :authenticate_user, {only: [:index, :show, :edit, :update]}
   before_action :forbid_login_user, {only: [:new, :create, :login_form, :login]}
   before_action :ensure_correct_user, {only: [:edit, :update]}
-
+  before_action :set_target_user, %i[show edit update]
 
   def index
     @users = User.all.order(created_at: :desc)
   end
 
   def show
-    @user = User.find_by(id: params[:id])
+    # @user = User.find_by(id: params[:id])
   end
 
   def new
@@ -36,11 +36,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find_by(id: params[:id])
+    # @user = User.find_by(id: params[:id])
   end
 
   def update
-    @user = User.find_by(id: params[:id])
+    # @user = User.find_by(id: params[:id])
     @user.name = params[:name]
     @user.email = params[:email]
     @user.profile = params[:profile]
@@ -91,5 +91,9 @@ end
       flash[:notice] = "権限がありません"
       redirect_to("/posts/index")
     end
+  end
+
+  def set_target_user
+    @user = User.find_by(id: params[:id])
   end
 end

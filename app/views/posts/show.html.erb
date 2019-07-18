@@ -6,6 +6,8 @@
         <%= link_to(@user.name,"/users/#{@user.id}")%>
       </div>
       <p>
+        <%= @post.title %><br>
+        <%= @post.picture %><br>
         <%= @post.content %>
       </p>
       <div class="post-time">

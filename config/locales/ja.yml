@@ -1,5 +1,12 @@
 ja:
   activerecord:
+    models:
+      user: "ユーザー情報"
+    attributes:
+      user:
+        name: "ユーザー名"
+        email: "メールアドレス"
+        password: "パスワード"
     errors:
       template:
         header:
@@ -11,9 +18,3 @@ ja:
         record_invalid: "バリデーションに失敗しました。 %{errors}"
       full_messages:
         format: "[%{attribute}]%{message}"
-      models:
-        user:
-          attributes:
-            base:
-              restricted:  "制限付きユーザーには許可されていない動作です"
-          
